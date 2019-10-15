@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-import '@here/harp-datasource-protocol';
 import { GeoCoordinates } from '@here/harp-geoutils';
 import { GeoJsonDataProvider } from '@here/harp-geojson-datasource';
 import { MapControls, MapControlsUI } from '@here/harp-map-controls';
