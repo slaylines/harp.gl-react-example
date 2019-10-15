@@ -3,15 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@here/harp-datasource-protocol": "^0.10.0",
+    "@here/harp-fontcatalog": "^0.1.1",
+    "@here/harp-geojson-datasource": "^0.10.0",
+    "@here/harp-map-controls": "^0.10.0",
+    "@here/harp-map-theme": "^0.10.0",
+    "@here/harp-mapview": "^0.10.0",
+    "@here/harp-omv-datasource": "^0.10.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "three": "0.107.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:harp-gl-decoder": "webpack -p --config ./harp-gl-decoder.config.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.9"
   }
 }
