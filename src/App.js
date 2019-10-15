@@ -35,6 +35,7 @@ const styleSet = [
     attr: {
       color: '#01a39c',
       size: 48,
+      renderOrder: 100,
     },
   },
   {
@@ -44,6 +45,7 @@ const styleSet = [
       color: '#f8bc02',
       lineWidth: 10,
       metricUnit: 'Pixel',
+      renderOrder: 100,
     },
   },
 ];
