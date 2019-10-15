@@ -8,7 +8,7 @@ body,
 .app {
   width: 100vw;
   height: 100vh;
-  font-family: sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 canvas {
@@ -30,7 +30,6 @@ canvas {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.8em;
   letter-spacing: 1px;
-  text-transform: uppercase;
   text-align: center;
   z-index: 100;
 }
