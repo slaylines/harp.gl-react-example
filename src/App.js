@@ -8,7 +8,7 @@ import { APIFormat, OmvDataSource } from '@here/harp-omv-datasource';
 import { accessToken, theme } from './config';
 
 const initialCoordinates = new GeoCoordinates(52.53102, 13.3848);
-const initialZoomLevel = 6;
+const initialZoomLevel = 5;
 const geoJsonDataProvider = new GeoJsonDataProvider('offices', new URL('/resources/offices.json', window.location.href));
 const geoJsonDataSource = new OmvDataSource({ name: 'offices', dataProvider: geoJsonDataProvider });
 
