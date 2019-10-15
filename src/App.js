@@ -7,8 +7,8 @@ import { CopyrightElementHandler, MapView } from '@here/harp-mapview';
 import { APIFormat, OmvDataSource } from '@here/harp-omv-datasource';
 import { accessToken, theme } from './config';
 
-const initialCoordinates = new GeoCoordinates(40.707, -74.01);
-const initialCameraPosition = [initialCoordinates, 3000, 50];
+const initialCoordinates = new GeoCoordinates(52.53102, 13.3848);
+const initialZoomLevel = 6;
 const geoJsonDataProvider = new GeoJsonDataProvider('offices', new URL('/resources/offices.json', window.location.href));
 const geoJsonDataSource = new OmvDataSource({ name: 'offices', dataProvider: geoJsonDataProvider });
 
@@ -28,6 +28,26 @@ const baseMap = new OmvDataSource({
   copyrightInfo: [hereCopyrightInfo],
 });
 
+const styleSet = [
+  {
+    when: '$geometryType == "point"',
+    technique: 'circles',
+    attr: {
+      color: '#01a39c',
+      size: 48,
+    },
+  },
+  {
+    when: '$geometryType == "line"',
+    technique: 'solid-line',
+    attr: {
+      color: '#f8bc02',
+      lineWidth: 10,
+      metricUnit: 'Pixel',
+    },
+  },
+];
+
 const App = () => {
   const canvasRef = useRef(null);
   const mapRef = useRef(null);
@@ -39,8 +59,8 @@ const App = () => {
     CopyrightElementHandler.install('copyright-notice', map);
 
     map.addDataSource(baseMap);
-    map.addDataSource(geoJsonDataSource);
-    map.lookAt(...initialCameraPosition);
+    map.addDataSource(geoJsonDataSource).then(() => geoJsonDataSource.setStyleSet(styleSet));
+    map.setCameraGeolocationAndZoom(initialCoordinates, initialZoomLevel);
 
     window.addEventListener('resize', onWindowResize);
 
